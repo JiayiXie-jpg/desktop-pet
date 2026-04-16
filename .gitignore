@@ -1,0 +1,8 @@
+node_modules/
+dist/
+dist-electron/
+electron-dist/
+*.dmg
+*.exe
+*.blockmap
+.vite/

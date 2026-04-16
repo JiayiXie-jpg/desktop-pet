@@ -1,0 +1,48 @@
+{
+  "name": "desktop-pet",
+  "version": "1.0.0",
+  "description": "Desktop Pet Companion - Your pet on your desktop",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && tsc -p tsconfig.electron.json",
+    "preview": "vite preview",
+    "electron:dev": "tsc -p tsconfig.electron.json && concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "electron:build": "npm run build && electron-builder",
+    "backend:build": "tsc -p backend-ts/tsconfig.json",
+    "backend:dev": "npx tsx backend-ts/server.ts",
+    "backend": "npx tsx backend-ts/server.ts"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "multer": "^1.4.5-lts.1",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/multer": "^1.4.12",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@types/ws": "^8.5.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "concurrently": "^8.2.0",
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.5.0",
+    "vite": "^5.4.0",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.desktoppet.companion",
+    "productName": "Desktop Pet",
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  }
+}
